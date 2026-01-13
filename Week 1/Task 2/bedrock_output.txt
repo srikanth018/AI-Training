@@ -1,0 +1,77 @@
+Input:
+Create a Python function that connects to a database with proper error handling following the document's standards.
+
+Output:
+Based on the information provided in the "Enterprise Cloud Infrastructure Documentation", I can create a Python function to connect to a database with proper error handling, following the standards outlined in the document. Here's an example implementation:
+
+```python
+import psycopg2
+from psycopg2 import OperationalError
+
+def connect_to_database(host, port, database, user, password):
+    """
+    Establishes a connection to the specified database.
+
+    Args:
+        host (str): The hostname or IP address of the database server.
+        port (int): The port number on which the database is listening.
+        database (str): The name of the database to connect to.
+        user (str): The username to use for authentication.
+        password (str): The password associated with the provided username.
+
+    Returns:
+        conn (psycopg2.extensions.connection): A connection object if successful.
+
+    Raises:
+        OperationalError: If a connection cannot be established due to invalid
+            credentials or other operational issues.
+        Exception: If any other unexpected exception occurs during the connection
+            establishment process.
+    """
+    try:
+        conn = psycopg2.connect(
+            host=host,
+            port=port,
+            database=database,
+            user=user,
+            password=password
+        )
+        print("Connection to database successful.")
+        return conn
+    except OperationalError as e:
+        print(f"Unable to connect to the database: {e}")
+        raise
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        raise
+
+# Example usage
+if __name__ == "__main__":
+    host = "localhost"
+    port = 5432
+    database = "mydb"
+    user = "myuser"
+    password = "mypassword"
+
+    try:
+        conn = connect_to_database(host, port, database, user, password)
+        # Perform database operations here
+    except Exception as e:
+        print(f"Error: {e}")
+```
+
+Here's a breakdown of the key elements in the function based on the standards outlined in the document:
+
+1. **Function Documentation**: The function includes a docstring containing a brief description, parameters with types and descriptions, return value and type, and a list of possible exceptions raised.
+
+2. **Exception Handling**: The function uses specific exception types (`OperationalError` and `Exception`) and never a bare `except` clause. Exceptions are caught in the order of most specific to least specific, and each exception is logged with an appropriate error message.
+
+3. **Error Messages**: The error messages are descriptive and provide context about what went wrong.
+
+4. **Logging**: The function logs a success message when the connection is established and error messages when exceptions occur.
+
+5. **Function Length and Complexity**: The function is relatively short (within the 50-line limit) and has a low cyclomatic complexity.
+
+6. **Naming Conventions**: The function name (`connect_to_database`) follows the snake_case convention and is verb-based. The variable names are also in snake_case and descriptive.
+
+Please note that the document does not provide any specific information about database connection libraries or authentication methods, so I have used the `psycopg2` library for PostgreSQL as an example. You may need to adjust the code based on your specific database and authentication requirements.
