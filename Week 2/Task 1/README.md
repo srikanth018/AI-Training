@@ -56,43 +56,34 @@ Do not assume any thing, use related policy documents to get accurate answer
 **Assistant (Sample Output):**
 
 ```text
-I'm sorry to hear you were charged twice this month. I’ll help you resolve this quickly.
+I'm sorry to hear that you were charged twice for your subscription this month. That shouldn't have happened. Could you please provide me with the following details so I can investigate this issue further:
 
-To investigate the duplicate charge, could you please share:
-1. Your customer ID or account email
-2. The charge amount and date
-3. The transaction ID(s) from your bank statement
-4. Your subscription plan
+1. Your account/subscription name or number
+2. The invoice numbers or dates of the duplicate charges
+3. The amount you were charged each time
 
-Once I have these details, I can review your account and guide you on the next steps.
+Having these specifics will help me track down what occurred and ensure you are only billed correctly for your subscription. I'll be happy to look into issuing a refund for the duplicate charge once I have those details from you. Please let me know if you need any assistance locating that information as well. I'm committed to resolving this billing error promptly. 
 ```
 **User:**
-customer ID - sri1801
-amount - 4000 Rs
-Date - 12/01/2026
-transaction ID - 123456789
-subscription plan - basic
+1. subscription name - basic, invoice numbers - 123456789, dates - 12/01/2026, amount - 4000 Rs
 
 **Assistant (Sample Output):**
 
 ```text
-I understand - so you have two identical charges of ₹4,000 each on 12/01/2026 for your Basic plan subscription.
+Thank you for providing the details:
 
-I've logged your case for duplicate billing:
+Subscription Name: Basic
+Invoice Number: 123456789  
+Date: 12/01/2026
+Amount: 4000 Rs
 
-- Customer ID: sri1801
-- Duplicate charges: 2 x ₹4,000 on 12/01/2026
-- Plan: Basic
-- Reference: Transaction ID 123456789
+I've looked into your account, and I can confirm that you were incorrectly charged twice on 12/01/2026 for your Basic subscription, resulting in a duplicate payment of 4000 Rs.
 
-Next Steps:
+Please allow me to sincerely apologize for this billing error on our part. I have initiated a refund for the duplicate charge of 4000 Rs, and you should see this amount credited back to your original payment method within 5-7 business days.
 
-1. I'm escalating this to our billing team immediately
-2. You'll receive a refund of ₹4,000 within 5-7 business days
-3. Confirmation email will be sent to your registered email
-4. Case reference number: DB-sri1801-240113
+Going forward, you should only be billed 4000 Rs monthly for your Basic subscription on the regular billing date. If you notice any other discrepancies, please reach out to me right away.
 
-Is there anything else regarding this billing issue I can help you with?
+Thank you for your patience and for bringing this to my attention. I'm sorry again for the inconvenience caused by this duplicate charge. Please let me know if you need any other assistance. 
 ```
 
 ---
@@ -130,33 +121,14 @@ Do not assume any thing, use related policy documents to get accurate answer
 **Assistant (Sample Output):**
 
 ```text
-I understand your concern about the late fee on your account, Sri. Let me help you with this.
+Dear customer,
 
-To check your current account status and any late fee charges, I need:
+Thank you for reaching out regarding the late fee on your account. As per our policy, there is a grace period of 5 days after the due date for making a payment. Any payment made beyond the 5-day grace period is subject to a late fee.
 
-1. What was your original payment due date?
-2. What's the outstanding amount on your account?
+Since you mentioned that your payment was 3 days late, it falls within the grace period, and you should not have been charged a late fee. Please provide me with the invoice number where the late fee was applied, and I will be happy to investigate this further and issue a refund if applicable.
 
-This will help me review your account (Customer ID: sri1801) and tell you exactly what charges are currently showing, including any late fees that may have been applied.
+I apologize for the inconvenience caused. Please let me know if you need any other assistance.
 ```
-**User:**
-original payment due date - 10/01/2026
-amount - 4500 Rs
-**Assistant (Sample Output):**
-
-```text
-Based on your account details:
-
-- Customer ID: sri1801
-- Due date: 10/01/2026
-- Current date: 13/01/2026
-- Outstanding amount: ₹4,500
-
-Yes, a late fee of ₹500 has been applied to your account. Your Basic plan subscription was ₹4,000, and with the 3-day late payment, the additional ₹500 late fee brings your total to ₹4,500.
-
-To avoid further late fees, please make the payment as soon as possible. Would you like assistance with payment options?
-```
-
 ---
 
 ## Best one
@@ -168,3 +140,7 @@ To avoid further late fees, please make the payment as soon as possible. Would y
 * Produces consistent and policy-aligned responses
 * Handles complex billing scenarios (refunds, late fees, incorrect charges) more reliably
 * Improves transparency and customer confidence without exposing internal logic
+
+## Received Results
+
+> Model used: Claude Sonnet from AWS Bedrock
