@@ -1,0 +1,263 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6cc2657c-e493-4351-9575-24a1ea1e5bd3",
+      "name": "When chat message received",
+      "webhookId": "476e7488-8b10-4e13-933e-54c73498d412"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are an AI-powered request classification and routing assistant.\n\nYour responsibilities MUST be performed in the following order:\n\nSTEP 1 — Classification\nAnalyze the user's input query and classify it into exactly ONE category and ONE role.\n\nCustomer Queries (Role: CUSTOMER):\n- Product Inquiry\n- General Support\n- Sales Question\n- Billing Inquiry\n- Feature Request\n\nAdmin Queries (Role: ADMIN):\n- Technical Escalation\n- System Issue\n- Security Concern\n- Data Issue\n- Integration Problem\n\nClassification Guidelines:\n- Billing, refunds, subscriptions, pricing, feature requests → CUSTOMER\n- Outages, system failures, security risks, production impact, integrations → ADMIN\n- If urgency or production impact is mentioned → ADMIN\n- Choose exactly ONE category and ONE role\n\nSTEP 2 — Fetch Users (MANDATORY TOOL USAGE)\nAfter determining the role, you MUST call the HTTP Request tool.\n\nTool usage rules:\n- Use the HTTP Request tool exactly once\n- Method: GET\n- URL: https://api.escuelajs.co/api/v1/users\n- Purpose: Retrieve all users and identify recipients whose \"role\" matches the classified role\n- Do NOT skip this step\n\nSTEP 3 — Recipient Filtering\nFrom the HTTP response:\n- Select only users whose \"role\" matches the classified role\n- Ignore users with other roles\n\nSTEP 4 — Output\nReturn a single JSON object with the classification details and the list of email recipients.\n\nOutput format (JSON only, no explanations, no markdown):\n\n{\n  \"role\": \"<CUSTOMER | ADMIN>\",\n  \"category\": \"<one category from the list>\",\n  \"email_subject\": \"<short, clear subject line>\",\n  \"email_priority\": \"<LOW | MEDIUM | HIGH>\",\n  \"summary\": \"<1–2 sentence summary of the issue>\",\n  \"recipients\": [\n    {\n      \"id\": \"<user id>\",\n      \"name\": \"<user name>\",\n      \"email\": \"<user email>\",\n      \"role\": \"<user role>\"\n    }\n  ]\n}\n\nIMPORTANT RULES:\n- Tool execution is REQUIRED.\n- The HTTP Request tool is the ONLY allowed tool.\n- Do NOT invent users.\n- Use ONLY users returned by the HTTP Request tool.\n- The final response must be valid JSON."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "66938119-e7c1-49f0-99ea-d8db381059cd",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "ba94ae47-2c8a-4325-b97c-1b17ab40cee3",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "url": "https://api.escuelajs.co/api/v1/users",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        416,
+        192
+      ],
+      "id": "cdb2f571-5600-4c4b-b7d7-e65d5d313298",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "={{$('JSON_Raw').item.json.email_subject}}",
+        "emailType": "text",
+        "message": "={{ $('JSON_Raw').item.json.summary }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        976,
+        0
+      ],
+      "id": "a233bc31-2b23-4e7f-943e-fff235abaa0f",
+      "name": "Send a message",
+      "webhookId": "6365f337-62e8-4c6e-8299-55eca92ba0a2",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "NAdEJiu8nqGwY4dJ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "recipients",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        768,
+        0
+      ],
+      "id": "848837e3-6452-479b-8a62-1e5533da681e",
+      "name": "Function"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const raw = $json.output;\n\n// Remove ```json and ``` markers\nconst cleaned = raw\n  .replace(/```json/g, '')\n  .replace(/```/g, '')\n  .trim();\n\n// Parse JSON\nconst parsed = JSON.parse(cleaned);\n\nreturn {\n    json: parsed\n  };\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "19414075-6812-4c9b-87dd-9f1e90f837a0",
+      "name": "JSON_Raw"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "65198bdd-bea2-412d-9080-d59f04e5f729",
+              "name": "mail_status",
+              "value": "Sent",
+              "type": "string"
+            },
+            {
+              "id": "f57b8dc8-b474-4e8d-bea8-217b50323cfd",
+              "name": "summary",
+              "value": "={{ $('JSON_Raw').item.json.summary }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1184,
+        0
+      ],
+      "id": "b10f1989-bb7e-4100-9f33-6de62d309213",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "878bd965-3bf6-4035-9dbd-01190972353c",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "CGbQbr4nBKb1HUFP",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "JSON_Raw",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "JSON_Raw": {
+      "main": [
+        [
+          {
+            "node": "Function",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "e47d98d6-b957-44ae-b038-adcde7498d12",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4e3c4c706455cbcfd0d9b481db7d7ad537caf2eecbb9ac6a2060f5a6df76034f"
+  },
+  "id": "0ZPkK9QF9oix8JH2u91gZ",
+  "tags": []
+}
