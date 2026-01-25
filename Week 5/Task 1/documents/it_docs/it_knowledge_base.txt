@@ -1,0 +1,127 @@
+# IT Department Knowledge Base
+
+## VPN Setup Guide
+
+### How to Set Up VPN
+
+To set up the company VPN on your device:
+
+1. **Download VPN Client**
+   - Windows: Download Cisco AnyConnect from IT Portal
+   - Mac: Download Cisco AnyConnect from IT Portal
+   - Mobile: Download Cisco AnyConnect from App Store/Play Store
+
+2. **Installation**
+   - Run the installer with administrator privileges
+   - Follow the on-screen instructions
+   - Restart your device if prompted
+
+3. **Configuration**
+   - Open Cisco AnyConnect
+   - Enter VPN address: vpn.company.com
+   - Use your company email as username
+   - Use your regular password with 2FA
+
+4. **Troubleshooting**
+   - If connection fails, check your internet connection
+   - Ensure firewall allows VPN traffic
+   - Contact IT Helpdesk at ext. 1234 for assistance
+
+---
+
+## Approved Software List
+
+### Software Approved for Use
+
+The following software has been approved for installation on company devices:
+
+**Productivity Tools:**
+- Microsoft Office 365 (Word, Excel, PowerPoint, Outlook)
+- Slack for team communication
+- Zoom for video conferencing
+- Google Chrome, Mozilla Firefox (web browsers)
+
+**Development Tools:**
+- Visual Studio Code
+- IntelliJ IDEA
+- Docker Desktop
+- Git and GitHub Desktop
+- Postman
+
+**Security Tools:**
+- LastPass (password manager)
+- Cisco AnyConnect VPN
+- Microsoft Defender
+
+**Note:** Installing unapproved software may violate company policy. To request approval for new software, submit a ticket through the IT Portal.
+
+---
+
+## Laptop Request Process
+
+### How to Request a New Laptop
+
+To request a new laptop or replacement:
+
+1. **Submit Request**
+   - Go to IT Portal (it.company.com)
+   - Click "Hardware Requests"
+   - Select "New Laptop Request"
+   - Fill out the request form
+
+2. **Required Information**
+   - Business justification
+   - Manager approval (will be auto-requested)
+   - Preferred specifications
+   - Urgency level
+
+3. **Approval Process**
+   - Manager reviews and approves
+   - IT reviews technical requirements
+   - Procurement processes order
+   - Typical timeline: 2-3 weeks
+
+4. **Pickup and Setup**
+   - You'll receive email when ready
+   - Pick up from IT desk (Building A, Floor 1)
+   - IT will help with initial setup
+   - Old laptop must be returned if replacement
+
+**Standard Laptop Options:**
+- Dell Latitude 5420 (Standard)
+- MacBook Pro 14" (Development/Design)
+- Lenovo ThinkPad X1 (Executive)
+
+---
+
+## Password Reset
+
+### How to Reset Your Password
+
+If you've forgotten your password:
+
+1. Go to password.company.com
+2. Click "Forgot Password"
+3. Enter your company email
+4. Verify via SMS or email code
+5. Create new password (must meet complexity requirements)
+
+**Password Requirements:**
+- Minimum 12 characters
+- At least one uppercase letter
+- At least one lowercase letter
+- At least one number
+- At least one special character
+- Cannot reuse last 5 passwords
+
+---
+
+## IT Helpdesk Contact
+
+**Hours:** Monday-Friday, 8 AM - 6 PM EST
+
+**Contact Methods:**
+- Phone: ext. 1234
+- Email: helpdesk@company.com
+- Portal: it.company.com
+- Urgent issues: Call IT Emergency line ext. 9999

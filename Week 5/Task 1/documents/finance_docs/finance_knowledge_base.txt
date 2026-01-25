@@ -1,0 +1,179 @@
+# Finance Department Knowledge Base
+
+## Expense Reimbursement
+
+### How to File a Reimbursement
+
+To file an expense reimbursement:
+
+1. **Gather Documentation**
+   - Original receipts (digital or physical)
+   - Business purpose description
+   - Project/cost center code
+   - Manager approval (for amounts over $500)
+
+2. **Submit Through Portal**
+   - Log in to finance.company.com
+   - Click "Expense Reimbursement"
+   - Upload receipts
+   - Fill out expense details
+   - Submit for approval
+
+3. **Approval Workflow**
+   - Manager reviews (1-2 business days)
+   - Finance reviews (2-3 business days)
+   - Payment processed (5-7 business days)
+   - Direct deposit to your registered account
+
+4. **Reimbursable Expenses**
+   - Business travel (flights, hotels, meals)
+   - Client entertainment (with justification)
+   - Office supplies
+   - Professional development courses
+   - Mileage (current rate: $0.65/mile)
+
+5. **Non-Reimbursable Expenses**
+   - Personal items
+   - Alcoholic beverages (unless client meeting)
+   - Traffic violations
+   - Commuting costs
+
+**Submission Deadline:** Within 60 days of expense date
+
+---
+
+## Budget Reports
+
+### Where to Find Budget Reports
+
+Monthly budget reports are available at:
+
+**Location:** finance.company.com/reports
+
+**Available Reports:**
+- Monthly Department Budget Summary
+- Quarterly Budget vs Actual
+- Year-to-Date Spending Analysis
+- Forecast vs Actual Comparison
+- Project-specific Budget Tracking
+
+**How to Access:**
+1. Log in to Finance Portal
+2. Navigate to "Reports" section
+3. Select "Budget Reports"
+4. Filter by:
+   - Time period
+   - Department
+   - Cost center
+   - Project code
+
+**Last Month's Report:**
+- December 2025 reports available since January 5, 2026
+- Located in "Monthly Reports" folder
+- Includes variance analysis and explanations
+
+**Custom Reports:**
+- For custom budget analysis, contact Finance at finance@company.com
+- Allow 3-5 business days for custom report generation
+
+---
+
+## Payroll Schedule
+
+### When is Payroll Processed?
+
+**Payroll Schedule:**
+- Processing Date: 15th and last day of each month
+- If holiday/weekend: Previous business day
+- Direct deposit: Same day by 9 AM
+- Paper checks: Available by noon
+
+**Payroll Periods:**
+- 1st-15th: Paid on 15th
+- 16th-End of month: Paid on last day
+
+**Important Dates 2026:**
+- January 15, 2026
+- January 31, 2026
+- February 14, 2026 (15th falls on Sunday)
+- February 28, 2026
+
+**Payroll Inquiries:**
+- Discrepancies: Contact payroll@company.com within 5 days
+- Tax questions: Contact HR Benefits at hrbenefits@company.com
+- Direct deposit changes: Update in Employee Portal (requires 2 pay periods notice)
+
+**Tax Documents:**
+- W-2 forms: Available by January 31
+- Access through Employee Portal
+- Paper copies mailed to address on file
+
+---
+
+## Purchase Orders
+
+### How to Create a Purchase Order
+
+For purchases over $1,000:
+
+1. **Initiate Request**
+   - Go to Procurement Portal (procurement.company.com)
+   - Click "Create Purchase Order"
+   - Enter vendor information
+   - Add item details and quantities
+
+2. **Required Approvals**
+   - Up to $5,000: Manager approval only
+   - $5,000-$25,000: Manager + Finance Director
+   - Over $25,000: Manager + Finance Director + CFO
+
+3. **Processing Time**
+   - Standard: 3-5 business days
+   - Urgent: 1-2 business days (requires justification)
+
+4. **Vendor Payment Terms**
+   - Net 30 standard
+   - Net 60 for large orders
+   - Early payment discounts evaluated case-by-case
+
+---
+
+## Travel Expense Policy
+
+### Business Travel Expenses
+
+**Flight Booking:**
+- Use company travel portal (travel.company.com)
+- Economy class for flights under 5 hours
+- Business class approved for international flights over 5 hours
+- Book at least 14 days in advance when possible
+
+**Hotel Allowances:**
+- Tier 1 cities (NYC, SF, LA): Up to $250/night
+- Tier 2 cities: Up to $150/night
+- Tier 3 cities: Up to $100/night
+
+**Meal Per Diem:**
+- Breakfast: $15
+- Lunch: $25
+- Dinner: $40
+- Total daily maximum: $80
+
+**Ground Transportation:**
+- Taxis/rideshare: Reasonable amounts
+- Rental cars: Approved for multi-day trips
+- Parking: Keep all receipts
+
+---
+
+## Finance Contacts
+
+**General Inquiries:** finance@company.com
+
+**Department Contacts:**
+- Accounts Payable: ap@company.com
+- Accounts Receivable: ar@company.com
+- Payroll: payroll@company.com
+- Budget Analysis: budget@company.com
+
+**Office Hours:** Monday-Friday, 9 AM - 5 PM EST
