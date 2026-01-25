@@ -1,0 +1,4 @@
+MCP_Server/.env
+MCP_Server/node_modules
+AI_Agent/.env
+AI_Agent/.venv

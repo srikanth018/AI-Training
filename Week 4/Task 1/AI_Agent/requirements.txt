@@ -1,0 +1,13 @@
+langchain
+langchain-community
+langchain-aws
+langchain-text-splitters
+boto3
+sseclient-py
+requests
+python-dotenv
+pypdf
+faiss-cpu
+langchain-huggingface
+sentence-transformers
+tavily-python
