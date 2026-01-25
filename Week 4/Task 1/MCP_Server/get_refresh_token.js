@@ -2,8 +2,8 @@ import { google } from 'googleapis';
 import readline from 'readline';
 
 // Replace these with your OAuth credentials from Google Cloud Console
-const CLIENT_ID = '111046729287-39hnhdm7i6vcg17q43copqhpaup4fvba.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
+const CLIENT_ID = '';
+const CLIENT_SECRET = '';
 const REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob';
 
 const oauth2Client = new google.auth.OAuth2(
