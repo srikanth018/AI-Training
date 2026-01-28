@@ -1,0 +1,29 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #ffffff;
+  position: relative;
+}
+
+.app-header {
+  padding: 2rem;
+  text-align: center;
+  background: #ffffff;
+  border-bottom: 2px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.app-header p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
